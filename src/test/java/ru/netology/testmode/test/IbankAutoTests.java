@@ -1,7 +1,7 @@
-
 package ru.netology.testmode.test;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,8 +21,8 @@ public class IbankAutoTests {
 
     @BeforeEach
     void setup() {
-        open("http://localhost:7020");
-    }
+        open("http://localhost:7020");}
+
 
     @Test
     @DisplayName("Should successfully login with active registered user")
@@ -40,7 +40,7 @@ public class IbankAutoTests {
         val notRegisteredUser = getUser("active");
         $("[data-test-id=login] input").setValue(notRegisteredUser.getLogin());
         $("[data-test-id=password] input").setValue(notRegisteredUser.getPassword());
-        $("[data-test-id=action-login]").click();
+        $("button.button").click();
         $("[data-test-id=error-notification]").shouldBe(visible).shouldHave(text("Ошибка! Неверно указан логин или пароль"));
     }
 
