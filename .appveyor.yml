@@ -10,7 +10,7 @@ build: off
 
 install:
 
- - java -jar ./artifacts/app-ibank.jar -port=7020 & -P:profile=test &
+ - java -jar ./artifacts/app-ibank.jar -port=7020 -P:profile=test &
 
 build_script:
  - chmod +x gradlew
